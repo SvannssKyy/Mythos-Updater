@@ -12,6 +12,7 @@ const {
 } = require('discord.js');
 
 const { log } = require('../utils/logger');
+const { handleSetupCommand } = require('./setupCommand');
 
 const BUTTON_ID  = 'request_update';
 const MODAL_ID   = 'update_modal';
@@ -23,6 +24,14 @@ const INPUT_NOTE = 'update_note';
  * @param {import('discord.js').Interaction} interaction
  */
 async function handleInteraction(client, interaction) {
+  // ── Slash command ────────────────────────────────────────────────────────
+  if (interaction.isChatInputCommand()) {
+    if (interaction.commandName === 'setup') {
+      return handleSetupCommand(interaction);
+    }
+    return;
+  }
+
   // ── Button click: open modal ─────────────────────────────────────────────
   if (interaction.isButton() && interaction.customId.startsWith(BUTTON_ID)) {
     const modal = new ModalBuilder()
