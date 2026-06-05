@@ -1,0 +1,2 @@
+# Mythos-Updater
+Discord Bot
