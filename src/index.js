@@ -34,7 +34,7 @@ const client = new Client({
 client.once('ready', () => {
   log('info', `Logged in as ${client.user.tag} — Mythos Updater v1.9.1 ready`);
   client.user.setPresence({
-    activities: [{ name: 'Mythos SMP | Watching plugins' }],
+    activities: [{ name: 'Mythos Dev | Official Bot' }],
     status: 'online',
   });
 });
